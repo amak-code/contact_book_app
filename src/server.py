@@ -18,5 +18,7 @@ def add_contact():
     return crud.add_contact(name=name, phone=phone, email=email)
 
 if __name__ == '__main__':
+    crud.add_contact(name="Alex", phone="415-333-4567", email="a@gmail.com")
+    crud.add_contact(name="JoaHn", phone="415-333-7777", email="j@gmail.com")
     app.debug = True
     app.run(host='0.0.0.0')

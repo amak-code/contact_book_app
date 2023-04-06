@@ -59,13 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    //sample data
-    var contacts: [Contact]{
-        let first = Contact(id: "1", name: "Alex", phone: "415-123-3456" , email: "a@ghjk.com");
-        let second = Contact(id: "2", name: "Bob", phone: "321-234-3456", email: "b@gfhhj.com")
-        
-        return [first,second]
-    }
+    var contacts: [Contact] = []
+
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,16 +77,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactCell
         let contact = contacts[indexPath.row]
         
-        cell.id.text = contact.id
+        cell.id.text = String(contact.id)
         cell.name.text = contact.name
         cell.phone.text = contact.phone
         cell.email.text = contact.email
-        
-//        var content = cell.defaultContentConfiguration()
-//        content.text = contact.name
-//        content.secondaryText = contact.phone
-//        cell.contentConfiguration = content
-        
         
         return cell
         
