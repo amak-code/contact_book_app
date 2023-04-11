@@ -135,6 +135,17 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
+    
+    
+    //method for addButton to perform the action when the button is tapped
+    @objc func addButtonTapped() {
+        let addContactScreen = AddContactViewController()
+        navigationController?.pushViewController(addContactScreen, animated:
+                                                    false)
+        addContactScreen.title = "Create new contact"
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
@@ -144,17 +155,17 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         
         // create a navigation controller
-        let navController = UINavigationController(rootViewController: self)
+       // let navController = UINavigationController(rootViewController: self)
         //navController.navigationBar.prefersLargeTitles = true
 
         // set the navigation controller as the root view controller
-        UIApplication.shared.windows.first?.rootViewController = navController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+//        UIApplication.shared.windows.first?.rootViewController = navController
+//        UIApplication.shared.windows.first?.makeKeyAndVisible()
         
         //adding "add" button to the navigation menu
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
-        
+    
         
         //fetching contacts
         ContactController.fetchContacts { result in
@@ -170,10 +181,7 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    //method for addButton to perform the action when the button is tapped
-    @objc func addButtonTapped() {
-         print("Blah-Blah")
-    }
+  
     
     //creating table
     let contactTableView:UITableView = {

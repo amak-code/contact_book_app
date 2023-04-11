@@ -19,8 +19,8 @@ def add_contact():
 
 @app.route("/contacts/<id>", methods = ["DELETE"])
 def delete_contact(id):
-    id = int(id)
-    crud.delete_contact(id)
+    
+    crud.delete_contact(int(id))
     return ('', 204)
 
 if __name__ == '__main__':

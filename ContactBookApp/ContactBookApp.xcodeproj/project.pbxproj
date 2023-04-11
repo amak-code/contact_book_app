@@ -14,6 +14,7 @@
 		E544C02C29DCFEC300BAB75B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544C02B29DCFEC300BAB75B /* Contact.swift */; };
 		E544C02F29DDF7CF00BAB75B /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544C02E29DDF7CF00BAB75B /* ContactController.swift */; };
 		E544C03229DDFF8800BAB75B /* ContactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544C03129DDFF8800BAB75B /* ContactError.swift */; };
+		E544C03429E4E68600BAB75B /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544C03329E4E68600BAB75B /* AddContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E544C02B29DCFEC300BAB75B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		E544C02E29DDF7CF00BAB75B /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 		E544C03129DDFF8800BAB75B /* ContactError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactError.swift; sourceTree = "<group>"; };
+		E544C03329E4E68600BAB75B /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E544C01829DCB99D00BAB75B /* ContactsTableViewController.swift */,
+				E544C03329E4E68600BAB75B /* AddContactViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				E544C02C29DCFEC300BAB75B /* Contact.swift in Sources */,
 				E544C03229DDFF8800BAB75B /* ContactError.swift in Sources */,
+				E544C03429E4E68600BAB75B /* AddContactViewController.swift in Sources */,
 				E544C02F29DDF7CF00BAB75B /* ContactController.swift in Sources */,
 				E544C01929DCB99D00BAB75B /* ContactsTableViewController.swift in Sources */,
 				E544C01529DCB99D00BAB75B /* AppDelegate.swift in Sources */,
