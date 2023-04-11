@@ -11,13 +11,11 @@ import UIKit
 
 class ContactController {
     
+    static let baseUrl = URL(string: "http://localhost:5000/")!
+    
     static func fetchContacts(completion: @escaping (Result<[Contact], ContactError>)  -> Void){
         
-        guard let baseURL = URL(string: "http://localhost:5000/contacts") else {
-            return completion(.failure(.invalidURL))
-        }
-        
-        URLSession.shared.dataTask(with: baseURL) { data, response, error in
+        URLSession.shared.dataTask(with: baseUrl.appendingPathComponent("contacts")) { data, response, error in
             
             if let error = error {
                 completion(.failure(.thrownError(error)))
@@ -48,5 +46,29 @@ class ContactController {
         
     }
     
+    
+    static func deleteContact(contactId: Int, completion: @escaping (Result<Void, ContactError>)  -> Void){
+        
+        var request = URLRequest(url: baseUrl.appendingPathComponent("contacts/").appendingPathComponent(String(contactId)))
+        request.httpMethod = "DELETE"
+        
+        print("ContactID")
+        print(contactId)
+        print(request)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+            }
+            
+            guard let response = response  as? HTTPURLResponse, response.statusCode < 300 else {
+                return completion(.failure(.badResponse))
+            }
+            
+            return completion(.success(()))
+        }.resume()
+        
+    }
+        
     
 }
