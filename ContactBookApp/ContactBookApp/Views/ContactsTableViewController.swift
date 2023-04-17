@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class ContactsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddContactViewControllerDelegate {
     
     
     //Cell class
@@ -79,7 +79,6 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }//end of Cell class
     
     
-    
     var contacts: [Contact] = []
 
     
@@ -134,17 +133,26 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
-    
-    
-    
+ 
     //method for addButton to perform the action when the button is tapped
     @objc func addButtonTapped() {
         let addContactScreen = AddContactViewController()
+        addContactScreen.delegate = self
         navigationController?.pushViewController(addContactScreen, animated:
                                                     false)
         addContactScreen.title = "Create new contact"
         
     }
+    
+    // Navigate back to the table view controller ans shows added contact
+    func didSaveContact(contact: Contact) {
+           
+            contacts.append(contact)
+
+            contactTableView.reloadData()
+            
+            navigationController?.popViewController(animated: true)
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,14 +161,6 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
         configureTableView()
         constrainTableView()
         
-        
-        // create a navigation controller
-       // let navController = UINavigationController(rootViewController: self)
-        //navController.navigationBar.prefersLargeTitles = true
-
-        // set the navigation controller as the root view controller
-//        UIApplication.shared.windows.first?.rootViewController = navController
-//        UIApplication.shared.windows.first?.makeKeyAndVisible()
         
         //adding "add" button to the navigation menu
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
@@ -208,4 +208,6 @@ class ContactsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
 }
+
+
 

@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-struct Contact: Decodable{
-    let id: Int
+struct Contact: Decodable, Encodable{
+    let id: Int 
     let name: String
     let phone: String
     let email: String

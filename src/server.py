@@ -11,11 +11,18 @@ def get_contacts():
 @app.route("/contact", methods=["POST"])
 def add_contact():
 
-    name = request.form.get('name', '')
-    phone = request.form.get('phone', '')
-    email = request.form.get('email', '')
+   data = request.json
+   name = data.get('name', '')
+   phone = data.get('phone', 'no phone data')
+   email = data.get('email', '')
+   
+   return crud.add_contact(name, phone, email)
+
+
+@app.route("/contacts/<id>", methods = ["POST"])
+def edit_contact(id):
     
-    return crud.add_contact(name=name, phone=phone, email=email)
+    return crud.edit_contact(int(id))
 
 @app.route("/contacts/<id>", methods = ["DELETE"])
 def delete_contact(id):
